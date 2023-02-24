@@ -1,0 +1,8 @@
+{
+  "countries" : {
+    "type" : "all"
+  },
+  "start_date" : "2022-01-01",
+  "timeout_milliseconds" : 10000,
+  "max_reviews_per_request" : 20
+}

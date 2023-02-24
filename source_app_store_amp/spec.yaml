@@ -1,0 +1,347 @@
+documentationUrl: https://docsurl.com
+connectionSpecification:
+  $schema: http://json-schema.org/draft-07/schema#
+  title: App Store Amp Spec
+  description: App Store Amp Spec schema
+  type: object
+  required:
+    - app_name
+    - app_id
+    - countries
+    - start_date
+  additionalProperties: true
+  properties:
+    app_name:
+      title: App Name
+      description: This is Your app or game name, for which You need reviews from App Store. For example, in https://apps.apple.com/us/app/{MY_APP_NAME}/id592978487, where MY_APP_NAME is the value of Your app or game name.
+      order: 0
+      type: string
+      examples:
+        - tiktok
+        - instagram
+        - whatsapp-messenger
+        - snapchat
+        - sololearn-python-c-java
+    app_id:
+      title: App ID
+      description: This is Your app or game ID, for which You need reviews from App Store. For example, in https://apps.apple.com/us/app/careem-ride-delivery-pay/id{MY_APP_ID}, where MY_APP_ID is the value of Your app or game ID.
+      order: 1
+      type: string
+      examples:
+        - 835599320
+        - 389801252
+        - 310633997
+        - 447188370
+        - 1210079064
+    countries:
+      title: Countries
+      description: This is Your app or game reviews countries, from which You will get reviews from App Store. For example, in https://apps.apple.com/{MY_COUNTRY_I}/app/careem-ride-delivery-pay/id592978487, where MY_COUNTRY_I is one of the countries from array.
+      order: 2
+      type: object
+      oneOf:
+        - title: All Countries
+          description: All countries from "" to "" will be enumerated for Your app or game reviews countries.
+          type: object
+          properties:
+            type:
+              const: all
+        - title: Selected Countries
+          description: Only selected countries will be enumerated for Your app or game reviews countries.
+          type: object
+          required:
+            - selected
+          additionalProperties: true
+          properties:
+            type:
+              const: selected
+            selected:
+              type: array
+              uniqueItems: true
+              items:
+                type: string
+                enum:
+                  - ad
+                  - ae
+                  - af
+                  - ag
+                  - ai
+                  - al
+                  - am
+                  - an
+                  - ao
+                  - aq
+                  - ar
+                  - as
+                  - at
+                  - au
+                  - aw
+                  - ax
+                  - az
+                  - ba
+                  - bb
+                  - bd
+                  - be
+                  - bf
+                  - bg
+                  - bh
+                  - bi
+                  - bj
+                  - bl
+                  - bm
+                  - bn
+                  - bo
+                  - br
+                  - bs
+                  - bt
+                  - bv
+                  - bw
+                  - by
+                  - bz
+                  - ca
+                  - cc
+                  - cd
+                  - cf
+                  - cg
+                  - ch
+                  - ci
+                  - ck
+                  - cl
+                  - cm
+                  - cn
+                  - co
+                  - cr
+                  - cu
+                  - cv
+                  - cx
+                  - cy
+                  - cz
+                  - de
+                  - dj
+                  - dk
+                  - dm
+                  - do
+                  - dz
+                  - ec
+                  - ee
+                  - eg
+                  - eh
+                  - er
+                  - es
+                  - et
+                  - fi
+                  - fj
+                  - fk
+                  - fm
+                  - fo
+                  - fr
+                  - ga
+                  - gb
+                  - gd
+                  - ge
+                  - gf
+                  - gg
+                  - gh
+                  - gi
+                  - gl
+                  - gm
+                  - gn
+                  - gp
+                  - gq
+                  - gr
+                  - gs
+                  - gt
+                  - gu
+                  - gw
+                  - gy
+                  - hk
+                  - hm
+                  - hn
+                  - hr
+                  - ht
+                  - hu
+                  - id
+                  - ie
+                  - il
+                  - im
+                  - in
+                  - io
+                  - iq
+                  - ir
+                  - is
+                  - it
+                  - je
+                  - jm
+                  - jo
+                  - jp
+                  - ke
+                  - kg
+                  - kh
+                  - ki
+                  - km
+                  - kn
+                  - kp
+                  - kr
+                  - kw
+                  - ky
+                  - kz
+                  - la
+                  - lb
+                  - lc
+                  - li
+                  - lk
+                  - lr
+                  - ls
+                  - lt
+                  - lu
+                  - lv
+                  - ly
+                  - ma
+                  - mc
+                  - md
+                  - me
+                  - mf
+                  - mg
+                  - mh
+                  - mk
+                  - ml
+                  - mm
+                  - mn
+                  - mo
+                  - mp
+                  - mq
+                  - mr
+                  - ms
+                  - mt
+                  - mu
+                  - mv
+                  - mw
+                  - mx
+                  - my
+                  - mz
+                  - na
+                  - nc
+                  - ne
+                  - nf
+                  - ng
+                  - ni
+                  - nl
+                  - no
+                  - np
+                  - nr
+                  - nu
+                  - nz
+                  - om
+                  - pa
+                  - pe
+                  - pf
+                  - pg
+                  - ph
+                  - pk
+                  - pl
+                  - pm
+                  - pn
+                  - pr
+                  - ps
+                  - pt
+                  - pw
+                  - py
+                  - qa
+                  - re
+                  - ro
+                  - rs
+                  - ru
+                  - rw
+                  - sa
+                  - sb
+                  - sc
+                  - sd
+                  - se
+                  - sg
+                  - sh
+                  - si
+                  - sj
+                  - sk
+                  - sl
+                  - sm
+                  - sn
+                  - so
+                  - sr
+                  - st
+                  - sv
+                  - sy
+                  - sz
+                  - tc
+                  - td
+                  - tf
+                  - tg
+                  - th
+                  - tj
+                  - tk
+                  - tl
+                  - tm
+                  - tn
+                  - to
+                  - tr
+                  - tt
+                  - tv
+                  - tw
+                  - tz
+                  - ua
+                  - ug
+                  - um
+                  - us
+                  - uy
+                  - uz
+                  - va
+                  - vc
+                  - ve
+                  - vg
+                  - vi
+                  - vn
+                  - vu
+                  - wf
+                  - ws
+                  - ye
+                  - yt
+                  - za
+                  - zm
+                  - zw
+    start_date:
+      title: Start Date
+      description: This is start date, from which You will get reviews fro Your app or game. It should be in format YYYY-MM-DD.
+      order: 3
+      type: string
+      pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
+      examples:
+        - 2022-12-01
+        - 2022-01-01
+        - 1998-12-04
+        - 1967-05-05
+        - 1960-09-21
+    timeout_milliseconds:
+      title: Timeout in Milliseconds
+      description: Timeout in milliseconds between two subsequent requests to App Store.
+      order: 4
+      type: integer
+      default: 10000
+      minimum: 0
+      examples:
+        - 10000
+        - 1000
+        - 100
+        - 10
+        - 0
+    max_reviews_per_request:
+      title: Max Reviews per Request
+      description: Maximum number of reviews loaded per request to Google Play.
+      order: 5
+      type: integer
+      default: 20
+      minimum: 1
+      maximum: 20
+      examples:
+        - 20
+        - 15
+        - 10
+        - 5
+        - 1
